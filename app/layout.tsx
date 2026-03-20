@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
-import { Syne, DM_Mono } from 'next/font/google';
+import { Syne, DM_Mono, Geist } from 'next/font/google';
 import './globals.css';
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const syne = Syne({
   subsets: ['latin'],
@@ -27,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="tr" className={`${syne.variable} ${dmMono.variable}`}>
+    <html lang="tr" className={cn(syne.variable, dmMono.variable, "font-sans", geist.variable)}>
       <body
         className="bg-grid"
         style={{
