@@ -1,0 +1,156 @@
+@import 'tailwindcss';
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --bg:             #0a0a0f;
+  --surface:        #111118;
+  --surface2:       #1a1a24;
+  --border:         #2a2a3a;
+  --accent:         #7c6aff;
+  --accent-dim:     #5a4de0;
+  --accent-green:   #6affd4;
+  --accent-red:     #ff6a6a;
+  --accent-orange:  #ffb86a;
+  --text:           #e8e8f0;
+  --muted:          #6b6b80;
+  --card-hover-shadow: 0 8px 32px rgba(124, 106, 255, 0.18);
+}
+
+/* ─── Base Reset ────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ─── Background Grid Pattern ───────────────────────────────── */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(124,106,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,106,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── Animations ────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -800px 0; }
+  100% { background-position: 800px 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124, 106, 255, 0.3); }
+  50%       { box-shadow: 0 0 0 8px rgba(124, 106, 255, 0); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes scale-fade-in {
+  from { opacity: 0; transform: scale(0.94) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  33%       { transform: translateY(-18px) rotate(1.5deg) scale(1.02); }
+  66%       { transform: translateY(-8px) rotate(-1deg) scale(0.98); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-14px) rotate(-2deg); }
+}
+
+@keyframes shine {
+  from { left: -120%; }
+  to   { left: 220%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes glow-pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(106,255,212,0.2); }
+  50%       { box-shadow: 0 0 16px 4px rgba(106,255,212,0.08); }
+}
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.45s ease forwards;
+  opacity: 0;
+}
+
+.animate-scale-fade-in {
+  animation: scale-fade-in 0.28s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+}
+
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+.animate-float2 {
+  animation: float2 9s ease-in-out infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--surface) 0%,
+    var(--surface2) 40%,
+    var(--surface) 80%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+.btn-pulse {
+  animation: pulse-glow 2s infinite;
+}
+
+/* ─── Glass Card ────────────────────────────────────────────── */
+.glass {
+  background: rgba(17, 17, 24, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+/* ─── Score Badges ──────────────────────────────────────────── */
+.score-high   { color: var(--accent-green);  background: rgba(106,255,212,0.1);  border: 1px solid rgba(106,255,212,0.25); }
+.score-medium { color: var(--accent-orange); background: rgba(255,184,106,0.1);  border: 1px solid rgba(255,184,106,0.25); }
+.score-low    { color: var(--accent-red);    background: rgba(255,106,106,0.1);  border: 1px solid rgba(255,106,106,0.25); }
+
+.card-border-high   { border-color: rgba(106,255,212,0.25) !important; }
+.card-border-medium { border-color: rgba(255,184,106,0.25) !important; }
+.card-border-low    { border-color: rgba(255,106,106,0.25) !important; }
