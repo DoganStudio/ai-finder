@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Play, Zap, Target, Sparkles, Database, Code, Globe, Building, TrendingUp, Search } from "lucide-react";
