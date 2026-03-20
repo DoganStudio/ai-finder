@@ -30,8 +30,9 @@ export async function middleware(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname;
 
-  // Login değilse ve korumalı sayfadaysa → login'e yönlendir
-  if (!user && pathname !== '/login') {
+  // Public sayfalar — auth olmadan erişilebilir
+  const publicPaths = ['/', '/login'];
+  if (!user && !publicPaths.includes(pathname)) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
 

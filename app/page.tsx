@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import HeroSection from '@/components/ui/glassmorphism-trust-hero';
 
 export default function RootPage() {
-  redirect('/login');
+  return <HeroSection />;
 }
