@@ -37,7 +37,7 @@ const StatItem = ({ value, label }: { value: string; label: string }) => (
 
 export default function HeroSection() {
   return (
-    <div className="relative w-full text-white overflow-hidden font-sans" style={{ background: '#0a0a0f' }}>
+    <div className="relative w-full min-h-screen text-white overflow-hidden font-sans" style={{ background: '#0a0a0f' }}>
       <style>{`
         @keyframes fadeSlideIn {
           from { opacity: 0; transform: translateY(20px); }
@@ -69,11 +69,11 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-24 pb-12 sm:px-6 md:pt-32 md:pb-20 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8 items-start">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 min-h-screen flex items-center sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8 items-center w-full">
 
           {/* Left */}
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-8 pt-8">
+          <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
 
             {/* Badge */}
             <div className="hero-animate-fade-in hero-delay-100">
@@ -127,7 +127,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right */}
-          <div className="lg:col-span-5 space-y-6 lg:mt-12">
+          <div className="lg:col-span-5 space-y-6">
 
             {/* Stats Card */}
             <div className="hero-animate-fade-in hero-delay-500 relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-2xl">
